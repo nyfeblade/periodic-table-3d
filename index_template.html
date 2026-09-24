@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>Periodic Table 3D — Elements in Space</title>
+<meta name="description" content="An offline, self-contained, ultra-immersive 3D periodic table with real scientific data, a Bohr atom viewer, temperature-based phase simulation, and personal notes/versions."/>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+
+<div id="scene-container"></div>
+
+<div id="intro">
+  <h1>⚛ Periodic Table 3D</h1>
+  <p>
+    All 118 confirmed elements (plus one predicted) floating in real 3D space —
+    positioned by period &amp; group, and by <b>electron block</b> (s / p / d / f) in depth.
+    Every value — mass, electron configuration, electronegativity, melting &amp; boiling
+    points, discovery — comes from real reference data.
+  </p>
+  <p>
+    Drag to orbit · scroll to zoom · click an element to inspect it and see its
+    simplified Bohr atom model · write your own notes and save named versions, all
+    stored locally in this browser.
+  </p>
+  <button id="intro-start">Enter the table →</button>
+</div>
+
+<div id="topbar">
+  <div id="title-block">
+    <h1>⚛ Periodic Table 3D</h1>
+    <span>118 elements · real data · offline</span>
+  </div>
+  <input id="search" class="pill-input" type="text" placeholder="Search element or symbol…" autocomplete="off"/>
+  <button class="btn" id="btn-notes">📝 Notes</button>
+  <button class="btn" id="btn-versions">💾 Versions</button>
+  <div id="topbar-right">
+    <button class="btn" id="btn-autorotate">⟳ Auto-rotate</button>
+    <button class="btn" id="btn-reset">🏠 Reset view</button>
+  </div>
+</div>
+
+<button id="help-btn" title="Help">?</button>
+
+<div id="legend">
+  <h3>Category</h3>
+  <div id="legend-list"></div>
+</div>
+
+<div id="depthkey">
+  <h3>Depth = orbital block</h3>
+  <div id="depthkey-list"></div>
+</div>
+
+<div id="temp-panel">
+  <label for="temp-slider">🌡 Simulate temperature</label>
+  <input id="temp-slider" type="range" min="0" max="6000" step="10" value="298"/>
+  <span id="temp-label">298 K · 25 °C</span>
+  <button class="btn small" id="temp-toggle">Show phase</button>
+</div>
+
+<div id="tooltip"></div>
+
+<!-- Element detail panel -->
+<div id="panel">
+  <button id="panel-close">✕</button>
+  <div id="panel-head">
+    <div id="panel-num"></div>
+    <div id="panel-symbol"></div>
+    <div id="panel-name"></div>
+    <div id="panel-cat"></div>
+    <div id="panel-predicted" style="display:none;"></div>
+  </div>
+  <div id="atom-canvas-wrap">
+    <canvas id="atom-canvas"></canvas>
+    <div id="atom-shells-label"></div>
+  </div>
+  <div id="panel-body">
+    <dl class="data-grid" id="panel-grid"></dl>
+    <p id="panel-summary"></p>
+
+    <div class="section-title">Your notes on this element</div>
+    <textarea id="panel-notes" placeholder="Write anything — reactions, mnemonics, questions…"></textarea>
+    <div id="notes-saved"></div>
+  </div>
+</div>
+
+<!-- General notes drawer -->
+<div class="drawer" id="drawer-notes">
+  <button class="drawer-close" data-close="drawer-notes">✕</button>
+  <h2>📝 General notes</h2>
+  <p style="font-size:12.5px;color:var(--text-secondary);">
+    Free-form notes for the whole table (not tied to one element). Saved automatically
+    to this browser, and included whenever you save a version.
+  </p>
+  <textarea id="general-notes" placeholder="Write here…"></textarea>
+</div>
+
+<!-- Versions drawer -->
+<div class="drawer" id="drawer-versions">
+  <button class="drawer-close" data-close="drawer-versions">✕</button>
+  <h2>💾 Versions</h2>
+  <p style="font-size:12.5px;color:var(--text-secondary);">
+    A version is a snapshot of all your notes right now. Saved in this browser only —
+    export any version to a file to back it up or move it to another device/browser.
+  </p>
+  <button class="btn" id="btn-save-version" style="width:100%;margin:10px 0;">＋ Save current as new version</button>
+  <div class="field-label">Saved versions</div>
+  <div id="version-list"></div>
+  <div class="field-label">Import a version file</div>
+  <input type="file" id="import-file" accept="application/json"/>
+</div>
+
+<!--__SCRIPTS__-->
+<script>
+window.__ELEMENTS__ = /*__ELEMENTS_JSON__*/[]/*__END_ELEMENTS_JSON__*/;
+</script>
+<script>
+/*__APP_JS__*/
+</script>
+</body>
+</html>
