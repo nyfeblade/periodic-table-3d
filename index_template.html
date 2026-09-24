@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <title>Periodic Table 3D — Elements in Space</title>
-<meta name="description" content="An offline, self-contained, ultra-immersive 3D periodic table with real scientific data, a Bohr atom viewer, temperature-based phase simulation, and personal notes/versions."/>
+<meta name="description" content="An offline, self-contained 3D periodic table with real scientific data: orbital shapes, 3,383 isotopes with decay simulation, decay chains, a nuclear reaction Q-value lab, 50 chemical reactions, bonding prediction, periodic-trend maps, phase simulation and personal notes/versions."/>
 <style>
 /*__CSS__*/
 </style>
@@ -22,9 +22,11 @@
     points, discovery — comes from real reference data.
   </p>
   <p>
-    Drag to orbit · scroll to zoom · click an element to inspect it and see its
-    simplified Bohr atom model · write your own notes and save named versions, all
-    stored locally in this browser.
+    Drag to orbit · scroll to zoom · click an element to inspect it: Bohr model and
+    real orbital shapes, all 3,383 known isotopes with decay simulations, and bonding
+    predictions. Explore decay chains, a nuclear reaction lab, 50 chemical reactions and
+    3D periodic-trend maps from the top bar. Write notes and save versions, stored
+    locally in this browser.
   </p>
   <button id="intro-start">Enter the table →</button>
 </div>
@@ -37,13 +39,23 @@
   <input id="search" class="pill-input" type="text" placeholder="Search element or symbol…" autocomplete="off"/>
   <button class="btn" id="btn-notes">📝 Notes</button>
   <button class="btn" id="btn-versions">💾 Versions</button>
+  <button class="btn" id="btn-decaychains">☢ Decay chains</button>
+  <button class="btn" id="btn-nuclearlab">⚛ Nuclear lab</button>
+  <button class="btn" id="btn-chemistry">🧪 Chemistry</button>
+  <button class="btn" id="btn-trends">📈 Trends: off</button>
   <div id="topbar-right">
     <button class="btn" id="btn-autorotate">⟳ Auto-rotate</button>
     <button class="btn" id="btn-reset">🏠 Reset view</button>
+    <button id="help-btn" title="Help">?</button>
   </div>
 </div>
 
-<button id="help-btn" title="Help">?</button>
+<div id="trends-legend" style="display:none;">
+  <h3 id="trends-title">Trend</h3>
+  <div id="trends-gradient"></div>
+  <div id="trends-range"><span id="trends-min"></span><span id="trends-max"></span></div>
+  <div id="trends-note"></div>
+</div>
 
 <div id="legend">
   <h3>Category</h3>
@@ -77,14 +89,43 @@
   <div id="atom-canvas-wrap">
     <canvas id="atom-canvas"></canvas>
     <div id="atom-shells-label"></div>
+    <div id="orbital-controls" style="display:none;"></div>
+    <button class="btn small" id="btn-orbital-toggle" title="Switch between the simplified Bohr model and real hydrogen-like orbital shapes">Show orbitals</button>
   </div>
   <div id="panel-body">
     <dl class="data-grid" id="panel-grid"></dl>
     <p id="panel-summary"></p>
 
+    <div class="section-title">Isotopes <span id="isotope-count"></span></div>
+    <div id="isotope-list"></div>
+
+    <div class="section-title">Bonding with another element</div>
+    <select id="bond-partner" class="pill-input" style="width:100%;"></select>
+    <div id="bond-result"></div>
+
+    <div class="section-title">In the reaction library</div>
+    <div id="element-reactions"></div>
+
     <div class="section-title">Your notes on this element</div>
     <textarea id="panel-notes" placeholder="Write anything — reactions, mnemonics, questions…"></textarea>
     <div id="notes-saved"></div>
+  </div>
+</div>
+
+<!-- Decay simulation modal -->
+<div id="decay-modal">
+  <div id="decay-modal-inner">
+    <button class="drawer-close" id="decay-modal-close">✕</button>
+    <h2 id="decay-modal-title"></h2>
+    <canvas id="decay-canvas" width="480" height="300"></canvas>
+    <div id="decay-modal-stats"></div>
+    <div id="decay-modal-controls">
+      <button class="btn small" id="decay-start">▶ Run simulation</button>
+      <label style="font-size:11.5px;color:var(--text-secondary);">Sample size
+        <input id="decay-n" type="number" min="10" max="5000" value="500" style="width:70px;"/>
+      </label>
+    </div>
+    <p id="decay-modal-note"></p>
   </div>
 </div>
 
@@ -114,9 +155,54 @@
   <input type="file" id="import-file" accept="application/json"/>
 </div>
 
+<!-- Decay chains drawer -->
+<div class="drawer drawer-wide" id="drawer-decaychains">
+  <button class="drawer-close" data-close="drawer-decaychains">✕</button>
+  <h2>☢ Radioactive decay chains</h2>
+  <p style="font-size:12.5px;color:var(--text-secondary);">
+    The four natural decay series — each isotope decays into the next until it
+    reaches a stable nuclide. Branch percentages and half-lives are from the
+    IAEA Live Chart of Nuclides. Click any nuclide to open it in the table.
+  </p>
+  <div id="chain-tabs"></div>
+  <div id="chain-view"></div>
+</div>
+
+<!-- Nuclear reaction lab drawer -->
+<div class="drawer drawer-wide" id="drawer-nuclearlab">
+  <button class="drawer-close" data-close="drawer-nuclearlab">✕</button>
+  <h2>⚛ Nuclear reaction lab</h2>
+  <p style="font-size:12.5px;color:var(--text-secondary);">
+    Pick a preset fission/fusion reaction, or build your own from any nuclides
+    in the IAEA chart. The energy release (Q-value) is computed live from real mass
+    excess data: Q = Σ(mass excess)<sub>reactants</sub> − Σ(mass excess)<sub>products</sub>.
+  </p>
+  <div class="field-label">Presets</div>
+  <div id="nuclear-presets"></div>
+  <div class="field-label">Reaction builder</div>
+  <div id="nuclear-builder"></div>
+  <div id="nuclear-result"></div>
+</div>
+
+<!-- Chemistry browser drawer -->
+<div class="drawer drawer-wide" id="drawer-chemistry">
+  <button class="drawer-close" data-close="drawer-chemistry">✕</button>
+  <h2>🧪 Chemical reactions</h2>
+  <p style="font-size:12.5px;color:var(--text-secondary);">
+    50 real, balanced reactions across combustion, synthesis, decomposition,
+    displacement, precipitation, acid–base, redox and biological chemistry.
+  </p>
+  <input id="chem-search" class="pill-input" style="width:100%;margin-bottom:8px;" placeholder="Filter by element, name or type…"/>
+  <div id="chem-list"></div>
+</div>
+
 <!--__SCRIPTS__-->
 <script>
 window.__ELEMENTS__ = /*__ELEMENTS_JSON__*/[]/*__END_ELEMENTS_JSON__*/;
+window.__ISOTOPES__ = /*__ISOTOPES_JSON__*/;
+window.__DECAY_CHAINS__ = /*__DECAY_CHAINS_JSON__*/;
+window.__CHEM_REACTIONS__ = /*__CHEM_REACTIONS_JSON__*/;
+window.__NUCLEAR_PRESETS__ = /*__NUCLEAR_PRESETS_JSON__*/;
 </script>
 <script>
 /*__APP_JS__*/

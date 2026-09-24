@@ -1,0 +1,909 @@
+{
+ "U-238 series (uranium series)": [
+  {
+   "z": 92,
+   "a": 238,
+   "symbol": "U",
+   "hl_txt": "4.468E9 Y",
+   "hl_s": 1.4099634525447706e+17,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 5.45e-05
+    }
+   ]
+  },
+  {
+   "z": 90,
+   "a": 234,
+   "symbol": "Th",
+   "hl_txt": "24.10 d",
+   "hl_s": 2082240.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 91,
+   "a": 234,
+   "symbol": "Pa",
+   "hl_txt": "1.159 m",
+   "hl_s": 69.54,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 99.84
+    },
+    {
+     "mode": "IT",
+     "label": "isomeric transition",
+     "pct": 0.16
+    }
+   ],
+   "isomer": true,
+   "ex_kev": 73.92,
+   "note": "The main path runs through the metastable isomer Pa-234m (NUBASE2020); its 0.16% isomeric transition feeds the 6.70 h ground state, which also β⁻-decays to U-234."
+  },
+  {
+   "z": 92,
+   "a": 234,
+   "symbol": "U",
+   "hl_txt": "2.455E+5 Y",
+   "hl_s": 7747225326762.336,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 1.64e-09
+    },
+    {
+     "mode": "Mg",
+     "label": "Mg",
+     "pct": 1.4e-11
+    }
+   ]
+  },
+  {
+   "z": 90,
+   "a": 230,
+   "symbol": "Th",
+   "hl_txt": "7.54E+4 Y",
+   "hl_s": 2379392218484.237,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "24NE",
+     "label": "24NE",
+     "pct": 5.8e-11
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 4e-12
+    }
+   ]
+  },
+  {
+   "z": 88,
+   "a": 226,
+   "symbol": "Ra",
+   "hl_txt": "1600 Y",
+   "hl_s": 50491081559.3472,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "14C",
+     "label": "14C",
+     "pct": 3.2e-09
+    }
+   ]
+  },
+  {
+   "z": 86,
+   "a": 222,
+   "symbol": "Rn",
+   "hl_txt": "3.8235 d",
+   "hl_s": 330350.4,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 218,
+   "symbol": "Po",
+   "hl_txt": "3.097 m",
+   "hl_s": 185.82,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 99.98
+    },
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 0.02
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 214,
+   "symbol": "Pb",
+   "hl_txt": "27.06 m",
+   "hl_s": 1623.6,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 83,
+   "a": 214,
+   "symbol": "Bi",
+   "hl_txt": "19.71 m",
+   "hl_s": 1182.6,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 99.979
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 0.021
+    },
+    {
+     "mode": "B-A",
+     "label": "beta- delayed alpha",
+     "pct": 0.003
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 214,
+   "symbol": "Po",
+   "hl_txt": "163.46 us",
+   "hl_s": 0.00016346,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 210,
+   "symbol": "Pb",
+   "hl_txt": "22.20 Y",
+   "hl_s": 700563756.6359425,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 1.9e-06
+    }
+   ]
+  },
+  {
+   "z": 83,
+   "a": 210,
+   "symbol": "Bi",
+   "hl_txt": "5.012 d",
+   "hl_s": 433036.8,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 0.000132
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 210,
+   "symbol": "Po",
+   "hl_txt": "138.376 d",
+   "hl_s": 11955686.4,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 206,
+   "symbol": "Pb",
+   "hl_txt": "stable",
+   "hl_s": null,
+   "stable": true,
+   "decays": []
+  }
+ ],
+ "U-235 series (actinium series)": [
+  {
+   "z": 92,
+   "a": 235,
+   "symbol": "U",
+   "hl_txt": "7.04E+8 Y",
+   "hl_s": 2.221607588611277e+16,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 7e-09
+    },
+    {
+     "mode": "{+25}Ne",
+     "label": "cluster decay (Ne)",
+     "pct": 8e-10
+    }
+   ]
+  },
+  {
+   "z": 90,
+   "a": 231,
+   "symbol": "Th",
+   "hl_txt": "25.57 h",
+   "hl_s": 92052.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 91,
+   "a": 231,
+   "symbol": "Pa",
+   "hl_txt": "32570 Y",
+   "hl_s": 1027809078992.4614,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 3e-10
+    }
+   ]
+  },
+  {
+   "z": 89,
+   "a": 227,
+   "symbol": "Ac",
+   "hl_txt": "21.772 Y",
+   "hl_s": 687057392.318817,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 98.62
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 1.38
+    }
+   ]
+  },
+  {
+   "z": 90,
+   "a": 227,
+   "symbol": "Th",
+   "hl_txt": "18.697 d",
+   "hl_s": 1615420.8,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 88,
+   "a": 223,
+   "symbol": "Ra",
+   "hl_txt": "11.43 d",
+   "hl_s": 987552.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "14C",
+     "label": "14C",
+     "pct": 8.9e-08
+    },
+    {
+     "mode": "14C",
+     "label": "14C",
+     "pct": 7.7e-08
+    }
+   ]
+  },
+  {
+   "z": 86,
+   "a": 219,
+   "symbol": "Rn",
+   "hl_txt": "3.96 s",
+   "hl_s": 3.96,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 215,
+   "symbol": "Po",
+   "hl_txt": "1.781 ms",
+   "hl_s": 0.001781,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 99.99977
+    },
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 0.00023
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 211,
+   "symbol": "Pb",
+   "hl_txt": "36.1 m",
+   "hl_s": 2166.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 83,
+   "a": 211,
+   "symbol": "Bi",
+   "hl_txt": "2.14 m",
+   "hl_s": 128.4,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 99.724
+    },
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 0.276
+    }
+   ]
+  },
+  {
+   "z": 81,
+   "a": 207,
+   "symbol": "Tl",
+   "hl_txt": "4.77 m",
+   "hl_s": 286.2,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 207,
+   "symbol": "Pb",
+   "hl_txt": "stable",
+   "hl_s": null,
+   "stable": true,
+   "decays": []
+  }
+ ],
+ "Th-232 series (thorium series)": [
+  {
+   "z": 90,
+   "a": 232,
+   "symbol": "Th",
+   "hl_txt": "1.40E10 Y",
+   "hl_s": 4.41796963644288e+17,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 1.1e-09
+    }
+   ]
+  },
+  {
+   "z": 88,
+   "a": 228,
+   "symbol": "Ra",
+   "hl_txt": "5.75 Y",
+   "hl_s": 181452324.353904,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 89,
+   "a": 228,
+   "symbol": "Ac",
+   "hl_txt": "6.15 h",
+   "hl_s": 22140.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 90,
+   "a": 228,
+   "symbol": "Th",
+   "hl_txt": "1.9116 Y",
+   "hl_s": 60324219.69303007,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 88,
+   "a": 224,
+   "symbol": "Ra",
+   "hl_txt": "3.6316 d",
+   "hl_s": 313770.24,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "14C",
+     "label": "14C",
+     "pct": 4e-09
+    }
+   ]
+  },
+  {
+   "z": 86,
+   "a": 220,
+   "symbol": "Rn",
+   "hl_txt": "55.6 s",
+   "hl_s": 55.6,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 216,
+   "symbol": "Po",
+   "hl_txt": "0.145 s",
+   "hl_s": 0.145,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 212,
+   "symbol": "Pb",
+   "hl_txt": "10.622 h",
+   "hl_s": 38239.2,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 83,
+   "a": 212,
+   "symbol": "Bi",
+   "hl_txt": "60.55 m",
+   "hl_s": 3633.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 64.06
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 35.94
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 212,
+   "symbol": "Po",
+   "hl_txt": "294.3 ns",
+   "hl_s": 2.943e-07,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 208,
+   "symbol": "Pb",
+   "hl_txt": "stable",
+   "hl_s": null,
+   "stable": true,
+   "decays": []
+  }
+ ],
+ "Np-237 series (neptunium series, extinct in nature)": [
+  {
+   "z": 93,
+   "a": 237,
+   "symbol": "Np",
+   "hl_txt": "2.144E+6 Y",
+   "hl_s": 67658049289525.25,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 2e-10
+    }
+   ]
+  },
+  {
+   "z": 91,
+   "a": 233,
+   "symbol": "Pa",
+   "hl_txt": "26.975 d",
+   "hl_s": 2330640.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 92,
+   "a": 233,
+   "symbol": "U",
+   "hl_txt": "1.5919E5 Y",
+   "hl_s": 5023547045895.301,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "24NE",
+     "label": "24NE",
+     "pct": 7.2e-11
+    },
+    {
+     "mode": "SF",
+     "label": "spontaneous fission",
+     "pct": 6e-11
+    }
+   ]
+  },
+  {
+   "z": 90,
+   "a": 229,
+   "symbol": "Th",
+   "hl_txt": "7880 Y",
+   "hl_s": 248668576679.78497,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 88,
+   "a": 225,
+   "symbol": "Ra",
+   "hl_txt": "14.9 d",
+   "hl_s": 1287360.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 0.026
+    }
+   ]
+  },
+  {
+   "z": 89,
+   "a": 225,
+   "symbol": "Ac",
+   "hl_txt": "9.920 d",
+   "hl_s": 857088.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "14C",
+     "label": "14C",
+     "pct": 5.3e-10
+    }
+   ]
+  },
+  {
+   "z": 87,
+   "a": 221,
+   "symbol": "Fr",
+   "hl_txt": "4.9 m",
+   "hl_s": 294.0,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    },
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 0.1
+    }
+   ]
+  },
+  {
+   "z": 85,
+   "a": 217,
+   "symbol": "At",
+   "hl_txt": "32.6 ms",
+   "hl_s": 0.0326,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 99.993
+    },
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 0.007
+    }
+   ]
+  },
+  {
+   "z": 83,
+   "a": 213,
+   "symbol": "Bi",
+   "hl_txt": "45.59 m",
+   "hl_s": 2735.4,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 97.86
+    },
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 2.14
+    }
+   ]
+  },
+  {
+   "z": 84,
+   "a": 213,
+   "symbol": "Po",
+   "hl_txt": "3.706 us",
+   "hl_s": 3.706e-06,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 82,
+   "a": 209,
+   "symbol": "Pb",
+   "hl_txt": "3.234 h",
+   "hl_s": 11642.4,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "B-",
+     "label": "beta-minus",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 83,
+   "a": 209,
+   "symbol": "Bi",
+   "hl_txt": "2.01E19 Y",
+   "hl_s": 6.342942120892992e+26,
+   "stable": false,
+   "decays": [
+    {
+     "mode": "A",
+     "label": "alpha",
+     "pct": 100.0
+    }
+   ]
+  },
+  {
+   "z": 81,
+   "a": 205,
+   "symbol": "Tl",
+   "hl_txt": "stable",
+   "hl_s": null,
+   "stable": true,
+   "decays": []
+  }
+ ]
+}

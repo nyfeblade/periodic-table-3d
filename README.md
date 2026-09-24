@@ -6,7 +6,7 @@ An offline, self-contained, ultra-immersive 3D periodic table.
 
 ## What it is
 
-`index.html` is a single, self-contained HTML file (~750 KB, no build step, no
+`index.html` is a single, self-contained HTML file (~1.7 MB, no build step, no
 internet connection required after download) containing:
 
 - **All 118 confirmed elements** (plus element 119, shown clearly marked as
@@ -33,6 +33,51 @@ internet connection required after download) containing:
   of all your notes), rename/delete them, and export/import them as `.json`
   files to back them up or move them to another browser/device.
 
+### Simulations & datasets
+
+- **Real orbital shapes**: toggle any element's atom view from the Bohr model
+  to point clouds of its occupied orbitals (1s … 7p, s/p/d/f), sampled from
+  the hydrogen-like wavefunctions |ψ<sub>nlm</sub>|² (associated Laguerre
+  radial part × real spherical harmonics). Points are colored by the sign of
+  ψ, and electron occupancy follows the aufbau configuration and Hund's rule.
+- **All 3,383 known nuclides** (244 stable) from the
+  [IAEA Live Chart of Nuclides](https://www-nds.iaea.org/relnsd/vcharthtml/VChartHTML.html):
+  half-life, natural abundance, mass excess, atomic mass and every decay mode
+  with its branching ratio, shown in each element's panel.
+- **Radioactive decay simulator**: a Monte Carlo run on any unstable isotope
+  (every nucleus has the same per-step probability of decaying), drawn against
+  the exact curve N₀·2<sup>−t/t½</sup>, with daughters split by the real
+  branching ratios.
+- **Decay chains**: the uranium (U-238), actinium (U-235), thorium (Th-232)
+  and neptunium (Np-237) series, with the Q-value of every step, minor branches
+  and the total energy released by each chain.
+- **Nuclear reaction lab**: 11 fusion and fission presets (pp chain, D-D, D-T,
+  ³He-³He, Li-6/Li-7, CNO, U-235 and Pu-239 fission) plus a free reaction
+  builder. It checks that charge and nucleon number are conserved, then
+  computes Q from the mass excesses and reports the threshold energy,
+  Coulomb barrier, energy per kilogram and its TNT/gasoline equivalents.
+- **Chemistry**: 50 balanced reactions (combustion, synthesis, decomposition,
+  replacement, precipitation, acid–base, redox, biological), each marked
+  exothermic or endothermic. Every equation is checked to be atom-balanced.
+- **Bond predictor**: pick any two elements to see the predicted bond type
+  (metallic, nonpolar covalent, polar covalent or ionic) from the Pauling
+  electronegativity difference (ionic only when a metal is involved), plus the Pauling ionic-character estimate.
+- **Periodic trends in 3D**: turn the table into a height map of
+  electronegativity, ionization energy, atomic radius, electron affinity,
+  density, melting point or boiling point.
+
+### Shareable links
+
+| Link | Opens |
+|---|---|
+| `?element=Au` | Gold's detail panel |
+| `?element=U&orbitals=1` | Uranium's orbital view |
+| `?element=Na&bond=Cl` | Na–Cl bond prediction |
+| `?decay=Rn-222` | Decay simulation for radon-222 |
+| `?open=decaychains` / `?open=chemistry` | Those drawers |
+| `?open=nuclearlab&preset=4` | Nuclear lab with a preset loaded |
+| `?trend=en` (also `ie1`, `ar`, `ea`, `d`, `mp`, `bp`) | A trend height map |
+
 ## Project structure
 
 | File | Purpose |
@@ -42,6 +87,10 @@ internet connection required after download) containing:
 | `app.js` | All application logic (scene, UI, data, notes/versions). |
 | `style.css` | All styling. |
 | `elements.json` | Trimmed periodic table dataset embedded into the page. |
+| `isotopes.json` | All 3,383 nuclides from the IAEA Live Chart of Nuclides. |
+| `decay_chains.json` | The four natural decay series. |
+| `nuclear_presets.json` | Nuclear reaction presets (Q-values are computed, not stored). |
+| `chem_reactions.json` | The 50 chemical reactions. |
 | `three.min.js`, `OrbitControls.js` | Bundled Three.js r128 (vendored so the page works fully offline). |
 | `build.py` | Assembles `index_template.html` + the JS/CSS/data files into the final `index.html`. Run `python3 build.py` after editing any source file. |
 
@@ -59,6 +108,23 @@ internet connection required after download) containing:
 - The Bohr/orbit visualization is a simplified classical model for
   intuition — real electrons don't orbit like planets. Shell electron counts
   themselves are accurate.
+- Orbital shapes are exact **hydrogen-like** (one-electron) solutions. In
+  many-electron atoms the real orbitals have the same angular shapes and node
+  counts, but different radial sizes. Each subshell's cloud is scaled to the
+  same on-screen size, so compare shapes, not sizes.
+- Nuclear Q-values use **atomic** mass excesses, which already include the
+  electrons. In β⁺ emission this means Q includes the 1.022 MeV from the
+  positron annihilating with an electron.
+- Decay branch percentages follow the NUBASE convention: delayed branches
+  (e.g. β⁻n) are part of their parent branch and are shown separately. Where
+  the IAEA gives a decay mode without a measured ratio, it is shown as "?%".
+- The U-238 chain goes through **Pa-234m**, the metastable state that Th-234
+  decays almost entirely feed, rather than the Pa-234 ground state.
+- The bond predictor is the textbook electronegativity-difference rule, a
+  heuristic with known exceptions (e.g. NaH is ionic although ΔEN = 1.27).
+- Trend maps leave out elements with no measured value and all elements past
+  Z = 100. Atomic radius is the bonded (mostly covalent) radius. Gas
+  densities are stored in g/L and converted to g/cm³ for the density map.
 
 ## Notes on versions/storage
 
